@@ -9,5 +9,5 @@ package design_pattern.adapter_pattern;
 @SuppressWarnings("unused")
 public interface MediaPlayer {
 
-    void play(String type, String fileName);
+    void play(String type, String fileName) throws Exception;
 }
