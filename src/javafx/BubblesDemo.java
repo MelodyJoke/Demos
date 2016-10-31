@@ -80,7 +80,7 @@ public class BubblesDemo extends Application {
         timeline.play();
 
         // config primary stage
-        primaryStage.setTitle("Hello Venus!");
+        primaryStage.setTitle("Bubbles");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
