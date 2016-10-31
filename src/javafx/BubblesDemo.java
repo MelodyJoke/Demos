@@ -1,4 +1,4 @@
-package design_pattern;
+package javafx;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -22,12 +22,12 @@ import javafx.util.Duration;
 import static java.lang.Math.random;
 
 /**
- * description Design pattern
+ * description Javafx UI test
  * author Melo Chan
  * date 2016/10/24
  * version 0.0.0.1
  */
-public class DesignPattern extends Application {
+public class BubblesDemo extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
