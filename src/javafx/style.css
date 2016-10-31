@@ -1,0 +1,15 @@
+.top-label {
+    -fx-font: NORMAL 20 Tahoma;
+}
+
+.grid-pane {
+    -fx-padding: 40 0 0 0;
+}
+
+.grid-pane-label {
+    -fx-font: NORMAL 14 Tahoma;
+}
+
+.grid-pane-status {
+    -fx-text-fill: #ff0000;
+}

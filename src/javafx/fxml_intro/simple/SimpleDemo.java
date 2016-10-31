@@ -1,4 +1,4 @@
-package javafx.fxml_intro;
+package javafx.fxml_intro.simple;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

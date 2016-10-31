@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Button?>
+
+<?import java.lang.String?>
+<BorderPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="javafx.fxml_intro_login.LoginController">
+    <top>
+        <StackPane>
+            <ImageView>
+                <Image url="@top_bg.jpg"/>
+            </ImageView>
+
+            <Label text="%loginExample">
+                <styleClass>
+                    <String fx:value="top-label"/>
+                </styleClass>
+            </Label>
+        </StackPane>
+    </top>
+
+    <center>
+        <GridPane alignment="top_center" hgap="8" vgap="8">
+            <styleClass>
+                <String fx:value="grid-pane"/>
+            </styleClass>
+
+            <Label text="%signIn" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <styleClass>
+                    <String fx:value="grid-pane-label"/>
+                </styleClass>
+            </Label>
+
+            <Label text="%userName" GridPane.columnIndex="0" GridPane.rowIndex="1" labelFor="$usernameField"/>
+
+            <TextField fx:id="usernameField" prefColumnCount="10" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <Label text="%password" GridPane.columnIndex="0" GridPane.rowIndex="2" labelFor="$passwordField"/>
+
+            <PasswordField fx:id="passwordField" prefColumnCount="10" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                           onAction="#handlePasswordFieldAction"/>
+
+            <Button fx:id="submitButton" text="%submit" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                    onAction="#handleSubmitButtonAction"/>
+
+            <Label fx:id="buttonStatusText" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <styleClass>
+                    <String fx:value="grid-pane-status"/>
+                </styleClass>
+            </Label>
+        </GridPane>
+    </center>
+
+</BorderPane>
