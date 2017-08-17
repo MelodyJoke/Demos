@@ -10,12 +10,88 @@ import java.util.*
  */
 
 fun main(vararg args: String) {
-    val array = generateArray(10000)
+    generateArray(10000).apply {
+        test(DefaultSort(copyOf()))
+        test(SelectionSort(copyOf()))
+        test(InsertionSort(copyOf()))
+        test(ShellSort(copyOf()))
+        test(QuickSort(copyOf()))
+        test(Quick3WaySort(copyOf()))
+    }
 
-    test(DefaultSort(array.copyOf()))
-    test(SelectionSort(array.copyOf()))
-    test(InsertionSort(array.copyOf()))
-    test(ShellSort(array.copyOf()))
+    merge(generateArray(10).apply {
+        DefaultSort(this).apply {
+            sortWithCounter()
+            print()
+        }
+    }, generateArray(10).apply {
+        DefaultSort(this).apply {
+            sortWithCounter()
+            print()
+        }
+    }).apply {
+        DefaultSort(this).apply {
+            println(if (isSorted()) "succeed" else "fail")
+            print()
+            println("complete")
+        }
+    }
+}
+
+class Quick3WaySort<T : Comparable<T>>(array: Array<T>) : QuickSort<T>(array) {
+
+    override fun sortInside(left: Int, right: Int) {
+        if (right <= left) return
+
+        var lt = left
+        var i = left + 1
+        var gt = right
+
+        val v = array[left]
+
+        while (i <= gt) {
+            when {
+                array[i] < v -> exchange(lt++, i++)
+                array[i] > v -> exchange(i, gt--)
+                else -> i++
+            }
+        }
+
+        sortInside(left, lt - 1)
+        sortInside(gt + 1, right)
+    }
+}
+
+open class QuickSort<T : Comparable<T>>(array: Array<T>) : Sort<T>(array) {
+
+    override fun sort() {
+        sortInside(0, array.size - 1)
+    }
+
+    protected open fun sortInside(left: Int, right: Int) {
+        if (right <= left) return
+
+        val partition = partition(left, right)
+        sortInside(left, partition - 1)
+        sortInside(partition + 1, right)
+    }
+
+    private fun partition(left: Int, right: Int): Int {
+        var i = left
+        var j = right + 1
+
+        val v = array[left]
+
+        while (true) {
+            while (array[++i] < v) if (i == right) break
+            while (v < array[--j]) if (j == left) break
+            if (i >= j) break
+            exchange(i, j)
+        }
+
+        exchange(left, j)
+        return j
+    }
 }
 
 class ShellSort<T : Comparable<T>>(array: Array<T>) : Sort<T>(array) {
@@ -102,6 +178,32 @@ abstract class Sort<T : Comparable<T>>(protected val array: Array<T>) {
     fun isSorted(): Boolean = (1 until array.size).none { array[it] < array[it - 1] }
 
     fun getCountTime(): Long = countTime
+}
+
+fun <T : Comparable<T>> merge(left: Array<T>, right: Array<T>): Array<T> {
+    return when {
+        left.isEmpty() -> right
+        right.isEmpty() -> left
+        else -> merge(left + right, left.size - 1)
+    }
+}
+
+fun <T : Comparable<T>> merge(array: Array<T>, split: Int): Array<T> {
+    val copy = array.copyOf()
+
+    var i = 0
+    var j = split + 1
+
+    (0 until array.size).forEach {
+        when {
+            i > split -> array[it] = copy[j++]
+            j > array.size - 1 -> array[it] = copy[i++]
+            copy[j] < copy[i] -> array[it] = copy[j++]
+            else -> array[it] = copy[i++]
+        }
+    }
+
+    return array
 }
 
 fun <T : Comparable<T>> test(sort: Sort<T>) {
