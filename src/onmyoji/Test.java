@@ -20,9 +20,13 @@ public class Test {
         List<Statistics> statisticsList = new ArrayList<>();
 
         Statistics myBird = new Statistics("My bird").setAtt(8069).setCri(0.98).setCriDmg(1.86);
+        Statistics myBirdNew = new Statistics("My birdNew").setAtt(7886).setCri(0.94).setCriDmg(1.98);
+        Statistics myBirdSp = new Statistics("My birdSp").setAtt(7905).setCri(0.52).setCriDmg(2.87);
         Statistics myBirdOb = new Statistics("My bird ob").setAtt(7978).setCri(1).setCriDmg(1.74);
         Statistics yjBird = new Statistics("Yj's bird").setAtt(7839).setCri(1).setCriDmg(1.83);
         statisticsList.add(myBird);
+        statisticsList.add(myBirdNew);
+        statisticsList.add(myBirdSp);
         statisticsList.add(myBirdOb);
         statisticsList.add(yjBird);
 
