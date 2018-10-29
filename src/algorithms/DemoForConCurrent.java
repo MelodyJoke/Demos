@@ -9,7 +9,7 @@ import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
 /**
- * description Demo for concurrent
+ * description Scanner for concurrent
  * author Melo Chan
  * date 2017/9/18
  * version 0.0.0.1
