@@ -7,10 +7,10 @@ import java.math.BigDecimal;
 public class ForAli {
 
     public static void main(String... args) {
-        /*Bean mina = new Bean(123131111, "mina", 12, Gender.FEMALE, null);
+        /*Idol mina = new Idol(123131111, "mina", 12, Gender.FEMALE, null);
         mina.inner = mina.new Inner("hello");
         System.out.println(JSON.toJSONString(mina));
-        System.out.println(JSON.parseObject("{\"age\":12,\"gender\":\"FEMALE\",\"id\":123131111,\"inner\":{\"title\":\"hello\"},\"name\":\"mina\"}", Bean.class));*/
+        System.out.println(JSON.parseObject("{\"age\":12,\"gender\":\"FEMALE\",\"id\":123131111,\"inner\":{\"title\":\"hello\"},\"name\":\"mina\"}", Idol.class));*/
 
         /*System.out.println(checkString(null));
         System.out.println(checkString(""));

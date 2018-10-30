@@ -26,7 +26,7 @@ public class Bean {
 
     @Override
     public String toString() {
-        return "Bean{" +
+        return "Idol{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
